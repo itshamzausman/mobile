@@ -23,8 +23,8 @@ function render(leads) {
     for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li>
-                <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
+                <a target='_blank' href='${leads[i].url}'>
+                    ${leads[i].url}
                 </a>
             </li>
         `
@@ -47,6 +47,8 @@ deleteBtn.addEventListener("dblclick", function() {
 })
 
 inputBtn.addEventListener("click", function() {
-    push(referenceInDB, inputEl.value)
+    push(referenceInDB, {
+    url: inputEl.value
+})
     inputEl.value = "" 
 })
